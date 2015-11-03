@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- <script src="" -->
+
+
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.js"></script>
+
+    <script>alert("This is inline code!");</script>
+
+    <!-- then load our own app.js code -->
+    <script type="application/javascript" src="./lib/utils.js"></script>
+    <script type="application/javascript" src="./lib/MovingObject.js"></script>
+    <script type="application/javascript" src="./lib/asteroid.js"></script>
+    <script type="application/javascript" src="./lib/game.js"></script>
+    <script type="application/javascript" src="./lib/gameView.js"></script>
+
+    <script>
+      // var game = new Asteroids.Game();
+      var canvasEl = document.getElementById("canvas");
+      //var canvasEl = document.getElementsByTagName("canvas")[0];
+      canvasEl.height = window.innerHeight;
+      //make Game instance here, pass it to game view
+      canvasEl.width = window.innerWidth;
+      var game = new Asteroids.Game();
+      var view = new Asteroids.GameView(game, canvasEl.getContext("2d"))
+      view.start(canvasEl);
+    </script>
+
+  </body>
+</html>
